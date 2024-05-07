@@ -1,18 +1,17 @@
 import { PlusFilled } from "@ethr/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./Button";
+import { IconButton } from "./IconButton";
 
 const meta = {
-  component: Button,
-} satisfies Meta<typeof Button>;
+  component: IconButton,
+} satisfies Meta<typeof IconButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
-  render: (args) => <Button {...args} />,
+  render: (args) => <IconButton {...args} />,
   args: {
-    children: "Button Text",
-    prefix: <PlusFilled />,
+    children: <PlusFilled />,
   },
 };

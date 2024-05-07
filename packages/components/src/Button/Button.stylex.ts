@@ -5,6 +5,7 @@ export const buttonStyles = css.create({
   root: {
     alignItems: "center",
     borderWidth: 0,
+    boxSizing: "border-box",
     cursor: "pointer",
     display: "inline-flex",
     flexDirection: "row",
@@ -17,31 +18,23 @@ export const buttonStyles = css.create({
   },
   sizeXlarge: {
     ...css.include(typography.utilityButtonLarge),
-    paddingBottom: spacing[3],
-    paddingLeft: spacing[4],
-    paddingRight: spacing[4],
-    paddingTop: spacing[3],
+    paddingBlock: spacing[3],
+    paddingInline: spacing[4],
   },
   sizeLarge: {
     ...css.include(typography.utilityButtonLarge),
-    paddingBottom: spacing[2],
-    paddingLeft: spacing[4],
-    paddingRight: spacing[4],
-    paddingTop: spacing[2],
+    paddingBlock: spacing[2],
+    paddingInline: spacing[4],
   },
   sizeMedium: {
     ...css.include(typography.utilityButtonLarge),
-    paddingBottom: spacing[1],
-    paddingLeft: spacing[4],
-    paddingRight: spacing[4],
-    paddingTop: spacing[1],
+    paddingBlock: spacing[1],
+    paddingInline: spacing[4],
   },
   sizeSmall: {
     ...css.include(typography.utilityButtonSmall),
-    paddingBottom: `calc(${spacing[1]} * 0.75)`,
-    paddingLeft: spacing[4],
-    paddingRight: spacing[4],
-    paddingTop: `calc(${spacing[1]} * 0.75)`,
+    paddingBlock: `calc(${spacing[1]} * 0.75)`,
+    paddingInline: spacing[4],
   },
   variantPrimary: (color: "primary" | "danger") => ({
     backgroundColor: {
