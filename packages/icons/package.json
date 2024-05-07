@@ -1,0 +1,23 @@
+{
+  "name": "@ethr/icons",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@ethr/components": "workspace:*",
+    "@ethr/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "change-case": "^5.4.4",
+    "fetch-retry": "^6.0.0",
+    "prettier": "^3.2.5",
+    "svgo": "^3.2.0"
+  },
+  "scripts": {
+    "build": "run -T tsx scripts/build.ts"
+  }
+}

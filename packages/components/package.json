@@ -1,0 +1,31 @@
+{
+  "name": "@ethr/components",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@ethr/core": "workspace:*",
+    "@ethr/utils": "workspace:*",
+    "@phragon-react/use-fork-ref": "^0.0.2",
+    "react-strict-dom": "^0.0.9"
+  },
+  "devDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.73.6"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-native": ">=0.73.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "plugins": [
+    "prettier-plugin-stylex-key-sort",
+    "prettier-plugin-organize-imports"
+  ],
+  "validImports": ["@ethr/core"]
+}
