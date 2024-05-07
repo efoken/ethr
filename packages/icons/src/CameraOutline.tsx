@@ -2,7 +2,7 @@ import { createIcon } from "@ethr/components";
 import { html } from "@ethr/core";
 
 export const CameraOutline = createIcon(
-  <html.svg width={24} height={24}>
+  <html.svg>
     <html.path
       fillRule="evenodd"
       d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2a4 4 0 1 1-8 0 4 4 0 0 1 8 0"

@@ -2,7 +2,7 @@ import { createIcon } from "@ethr/components";
 import { html } from "@ethr/core";
 
 export const TravelBusOutline = createIcon(
-  <html.svg width={24} height={24}>
+  <html.svg>
     <html.path d="M8.5 16a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M17 14.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
     <html.path
       fillRule="evenodd"

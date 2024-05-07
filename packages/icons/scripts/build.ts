@@ -19,11 +19,17 @@ const indexPath = path.join(srcPath, "index.ts");
 function normalizeName(str: string) {
   return kebabCase(str)
     .replace(/^1$/, "one")
+    .replace(/-1$/, "-one")
     .replace(/^2$/, "two")
+    .replace(/-2$/, "-two")
     .replace(/^3$/, "three")
+    .replace(/-3$/, "-three")
     .replace(/^4$/, "four")
+    .replace(/-4$/, "-four")
     .replace(/^5$/, "five")
+    .replace(/-5$/, "-five")
     .replace(/^6$/, "six")
+    .replace(/^-6$/, "-six")
     .replace(/^7$/, "seven")
     .replace(/^8$/, "eight")
     .replace(/^9$/, "nine");
@@ -106,7 +112,7 @@ async function createComponent(
           },
           {
             name: "removeAttrs",
-            params: { attrs: "fill" },
+            params: { attrs: ["fill", "svg:height", "svg:width"] },
           },
         ],
       },
