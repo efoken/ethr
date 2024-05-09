@@ -55,4 +55,5 @@ export interface StrictReactDOMRectProps {
 export interface StrictReactDOMStopProps {
   offset?: string | number;
   stopColor?: string;
+  stopOpacity?: string | number;
 }

@@ -23,14 +23,12 @@ function processStyle(style: any) {
 function create(styles: Record<string, any>) {
   const result: any = {};
   for (const [styleName, val] of Object.entries(styles)) {
-    if (isFunction(val)) {
-      result[styleName] = (...args: any[]) => {
-        const style = val(...args);
-        return processStyle(style);
-      };
-    } else {
-      result[styleName] = processStyle(styles[styleName]);
-    }
+    result[styleName] = isFunction(val)
+      ? (...args: any[]) => {
+          const style = val(...args);
+          return processStyle(style);
+        }
+      : processStyle(styles[styleName]);
   }
   return rsdCss.create(result) as any;
 }

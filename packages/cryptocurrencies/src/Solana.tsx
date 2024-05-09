@@ -21,8 +21,8 @@ export const Solana = createCryptocurrency(
           <html.linearGradient
             id="solana-gradient-1"
             x1={21.778}
-            y1={-0.283102}
-            x2={8.31138}
+            y1={-0.283_102}
+            x2={8.311_38}
             y2={25.2531}
             gradientUnits="userSpaceOnUse"
           >
@@ -32,8 +32,8 @@ export const Solana = createCryptocurrency(
           <html.linearGradient
             id="solana-gradient-2"
             x1={15.9816}
-            y1={-3.33984}
-            x2={2.51505}
+            y1={-3.339_84}
+            x2={2.515_05}
             y2={22.1964}
             gradientUnits="userSpaceOnUse"
           >
@@ -43,8 +43,8 @@ export const Solana = createCryptocurrency(
           <html.linearGradient
             id="solana-gradient-3"
             x1={18.8614}
-            y1={-1.82123}
-            x2={5.39476}
+            y1={-1.821_23}
+            x2={5.394_76}
             y2={23.715}
             gradientUnits="userSpaceOnUse"
           >

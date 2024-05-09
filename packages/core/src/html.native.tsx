@@ -34,7 +34,7 @@ const StrictSvg: React.FC<StrictReactDOMSvgProps> = ({
         ? // eslint-disable-next-line no-underscore-dangle
           css.__customProperties[fillProp.replace(/^var\(--(.*)\)$/, "$1")]
         : fillProp,
-    [],
+    [fillProp],
   );
 
   return (

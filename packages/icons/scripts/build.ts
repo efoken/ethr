@@ -42,6 +42,7 @@ async function fetch(url: RequestInfo, init?: RequestInit) {
     retryOn: [429],
   });
   const config = JSON.parse(
+    // eslint-disable-next-line unicorn/no-await-expression-member
     (await fs.readFile(path.join(rootDir, ".figmarc.json"))).toString(),
   );
   return fetchRetry(url, {
@@ -84,9 +85,9 @@ async function fetchImage(component: { key: string }) {
     `https://api.figma.com/v1/images/${FIGMA_FILE_KEY}/?ids=${component.key}&format=svg`,
   );
   if (data.images != null) {
+    // eslint-disable-next-line unicorn/no-await-expression-member
     return (await fetch(data.images[component.key])).text();
   }
-  return undefined;
 }
 
 async function createComponent(
@@ -125,16 +126,16 @@ async function createComponent(
   jsCode = await format(
     jsCode
       .replace(/<svg\s*/, "<html.svg ")
-      .replace(/<\/svg>/, "</html.svg>")
-      .replace(/<path\s*/g, "<html.path ")
-      .replace(/<\/path>/g, "</html.path>")
-      .replace(/<defs\s*/g, "<html.defs ")
-      .replace(/<\/defs>/g, "</html.defs>")
-      .replace(/<g\s*/g, "<html.g ")
-      .replace(/<\/g>/g, "</html.g>")
-      .replace(/<clipPath\s*/g, "<html.clipPath ")
-      .replace(/<\/clipPath>/g, "</html.clipPath>")
-      .replace(/\s*{\.\.\.props}/, ""),
+      .replace("</svg>", "</html.svg>")
+      .replaceAll(/<path\s*/g, "<html.path ")
+      .replaceAll("</path>", "</html.path>")
+      .replaceAll(/<defs\s*/g, "<html.defs ")
+      .replaceAll("</defs>", "</html.defs>")
+      .replaceAll(/<g\s*/g, "<html.g ")
+      .replaceAll("</g>", "</html.g>")
+      .replaceAll(/<clipPath\s*/g, "<html.clipPath ")
+      .replaceAll("</clipPath>", "</html.clipPath>")
+      .replace(/\s*{\.{3}props}/, ""),
     {
       parser: "babel-ts",
       plugins: ["prettier-plugin-organize-imports"],
@@ -194,11 +195,11 @@ export default async function main() {
 
         return componentName;
       }
-      return undefined;
     }),
   );
 
   const componentNames = (await fs.readdir(srcPath))
+    // eslint-disable-next-line unicorn/no-await-expression-member
     .filter((name) => name !== "utils" && name !== "index.ts")
     .map((componentName) => componentName.replace(/\.tsx/, ""));
 

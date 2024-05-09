@@ -9,24 +9,24 @@ export interface ParsedShadow {
 
 const VALUES_RE = /,(?![^(]*\))/;
 const PARTS_RE = /\s(?![^(]*\))/;
-const LENGTH_RE = /^[0-9]+[a-zA-Z%]+?$/;
+const LENGTH_RE = /^\d+[%A-Za-z]+?$/;
 
 export function parseShadow(str: string) {
   return str.split(VALUES_RE).map<ParsedShadow>((s) => {
     const parts = s.trim().split(PARTS_RE);
     const inset = parts.includes("inset");
-    const last = parts.slice(-1)[0];
+    const last = parts.at(-1)!;
     const color = last !== "0" && !LENGTH_RE.test(last) ? last : undefined;
 
     const [offsetX, offsetY, blurRadius, spreadRadius] = parts
       .filter((n) => n !== "inset")
       .filter((n) => n !== color)
       .map((v) => {
-        if (!/px$/.test(v) && v !== "0") {
+        if (!v.endsWith("px") && v !== "0") {
           return v;
         }
         const n = Number.parseFloat(v);
-        return !Number.isNaN(n) ? n : v;
+        return Number.isNaN(n) ? v : n;
       });
 
     return {
