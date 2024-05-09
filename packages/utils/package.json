@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "main": "src/index.ts",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "react": "18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
 }

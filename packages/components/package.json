@@ -7,18 +7,19 @@
   "dependencies": {
     "@ethr/core": "workspace:*",
     "@ethr/utils": "workspace:*",
-    "@phragon-react/use-fork-ref": "^0.0.2",
+    "@floating-ui/react-dom": "^2.0.9",
+    "@floating-ui/react-native": "^0.10.5",
     "react-strict-dom": "^0.0.9"
   },
   "devDependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.73.6"
+    "react-native": "0.74.1"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-native": ">=0.73.0"
+    "react-native": ">=0.74.0"
   },
   "peerDependenciesMeta": {
     "react-dom": {
