@@ -23,6 +23,16 @@ import {
   Xrp,
 } from "@ethr/cryptocurrencies";
 import { TaxiFilled } from "@ethr/icons";
+import {
+  NotoSans_400Regular,
+  NotoSans_600SemiBold,
+  NotoSans_700Bold,
+  useFonts,
+} from "@expo-google-fonts/noto-sans";
+import {
+  NotoSerif_400Regular,
+  NotoSerif_700Bold,
+} from "@expo-google-fonts/noto-serif";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 
@@ -52,7 +62,19 @@ const styles = css.create({
 });
 
 export default function App() {
+  const [fontsLoaded, fontError] = useFonts({
+    NotoSans_400Regular,
+    NotoSans_600SemiBold,
+    NotoSans_700Bold,
+    NotoSerif_400Regular,
+    NotoSerif_700Bold,
+  });
+
   const [open, setOpen] = useState(false);
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
 
   return (
     <PortalProvider>
@@ -102,9 +124,9 @@ export default function App() {
           label="Label"
           percentage={9.3}
           percentageLabel="Since last week"
+          style={styles.card}
           variant="elevation"
           visual={<Cardano />}
-          style={styles.card}
         />
         <StatusBar
           // eslint-disable-next-line react/style-prop-object

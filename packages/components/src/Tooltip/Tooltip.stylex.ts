@@ -1,5 +1,6 @@
 import { css } from "@ethr/core";
-import { borders, colors, fonts, spacing, typography } from "../globals.stylex";
+import { borders, colors, spacing } from "../globals.stylex";
+import { fonts, typography } from "../typography.stylex";
 
 export const tooltipStyles = css.create({
   root: {},

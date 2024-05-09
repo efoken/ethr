@@ -1,11 +1,6 @@
 import { css } from "@ethr/core";
-import {
-  borders,
-  colors,
-  shadows,
-  spacing,
-  typography,
-} from "../globals.stylex";
+import { borders, colors, shadows, spacing } from "../globals.stylex";
+import { typography } from "../typography.stylex";
 
 export const scorecardStyles = css.create({
   root: {

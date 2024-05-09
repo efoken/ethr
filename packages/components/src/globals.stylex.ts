@@ -72,21 +72,6 @@ export const colors = css.defineVars({
   info50: "#005180",
 });
 
-export const fonts = css.defineVars({
-  familySans: "Arial", // "Noto Sans",
-  familySerif: "Noto Serif",
-  size0: 12,
-  size1: 14,
-  size2: 16,
-  size3: 20,
-  size4: 24,
-  size5: 32,
-  size6: 44,
-  weightRegular: 400,
-  weightSemibold: 600,
-  weightBold: 700,
-});
-
 export const spacing = css.defineVars({
   0: "0.25rem",
   1: "0.5rem",
@@ -124,84 +109,4 @@ export const shadows = css.defineVars({
   2: "0px 4px 12px 0px hsla(0, 0%, 0%, 0.15)",
   3: "0px 8px 20px 0px hsla(0, 0%, 0%, 0.15)",
   4: "0px 8px 20px 0px hsla(0, 0%, 0%, 0.15)",
-});
-
-export const typography = css.create({
-  headingH1: {
-    fontFamily: fonts.familySans,
-    fontSize: 44,
-    fontWeight: fonts.weightBold,
-    letterSpacing: -0.5,
-    lineHeight: 48 / 44,
-  },
-  headingH2: {
-    fontFamily: fonts.familySans,
-    fontSize: 32,
-    fontWeight: fonts.weightBold,
-    letterSpacing: -0.5,
-    lineHeight: 40 / 32,
-  },
-  headingH3: {
-    fontFamily: fonts.familySans,
-    fontSize: 24,
-    fontWeight: fonts.weightBold,
-    letterSpacing: -0.5,
-    lineHeight: 32 / 24,
-  },
-  headingH4: {
-    // fontFamily: "Arial",
-    fontSize: 20,
-    fontWeight: "700",
-    letterSpacing: -0.5,
-    lineHeight: 24 / 20,
-  },
-  headingH5: {
-    fontFamily: fonts.familySans,
-    fontSize: 16,
-    fontWeight: fonts.weightBold,
-    letterSpacing: -0.25,
-    lineHeight: 24 / 16,
-  },
-  headingH6: {
-    fontFamily: fonts.familySans,
-    fontSize: 14,
-    fontWeight: fonts.weightBold,
-    letterSpacing: -0.25,
-    lineHeight: 20 / 14,
-  },
-  bodyLarge: {
-    fontFamily: fonts.familySans,
-    fontSize: 16,
-    fontWeight: fonts.weightRegular,
-    letterSpacing: -0.25,
-    lineHeight: 24 / 16,
-  },
-  bodySmall: {
-    fontFamily: fonts.familySans,
-    fontSize: 14,
-    fontWeight: "400",
-    letterSpacing: -0.25,
-    lineHeight: 20 / 14,
-  },
-  bodyMicro: {
-    fontFamily: fonts.familySans,
-    fontSize: 12,
-    fontWeight: fonts.weightRegular,
-    letterSpacing: -0.25,
-    lineHeight: 16 / 12,
-  },
-  utilityButtonLarge: {
-    fontFamily: fonts.familySans,
-    fontSize: 16,
-    fontWeight: fonts.weightSemibold,
-    letterSpacing: -0.25,
-    lineHeight: 24 / 16,
-  },
-  utilityButtonSmall: {
-    fontFamily: fonts.familySans,
-    fontSize: 14,
-    fontWeight: fonts.weightSemibold,
-    letterSpacing: -0.25,
-    lineHeight: 20 / 14,
-  },
 });

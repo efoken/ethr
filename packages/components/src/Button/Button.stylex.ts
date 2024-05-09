@@ -1,5 +1,6 @@
 import { css } from "@ethr/core";
-import { borders, colors, spacing, typography } from "../globals.stylex";
+import { borders, colors, spacing } from "../globals.stylex";
+import { typography } from "../typography.stylex";
 
 export const buttonStyles = css.create({
   root: {
