@@ -9,7 +9,7 @@
     "@ethr/utils": "workspace:*",
     "@floating-ui/react-dom": "^2.0.9",
     "@floating-ui/react-native": "^0.10.5",
-    "react-strict-dom": "^0.0.9"
+    "react-strict-dom": "^0.0.10"
   },
   "devDependencies": {
     "react": "18.2.0",
