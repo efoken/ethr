@@ -1,3 +1,5 @@
+import type { Styles } from "react-strict-dom/dist/types/styles";
+
 export interface StrictReactDOMSvgProps {
   "aria-hidden"?: boolean;
   "aria-label"?: string;
@@ -6,10 +8,17 @@ export interface StrictReactDOMSvgProps {
   fill?: string;
   height?: string | number;
   role?: "img";
-  style?: any;
+  style?: Styles;
   viewBox?: string;
   width?: string | number;
   xmlns?: string;
+}
+
+export interface StrictReactDOMCircleProps {
+  cx?: string | number;
+  cy?: string | number;
+  fill?: string;
+  r?: string | number;
 }
 
 export interface StrictReactDOMClipPathProps {
@@ -21,9 +30,18 @@ export interface StrictReactDOMDefsProps {
   children?: React.ReactNode;
 }
 
+export interface StrictReactDOMEllipseProps {
+  cx?: string | number;
+  cy?: string | number;
+  fill?: string;
+  rx?: string | number;
+  ry?: string | number;
+}
+
 export interface StrictReactDOMGProps {
   children?: React.ReactNode;
   clipPath?: string;
+  mask?: string;
 }
 
 export interface StrictReactDOMLinearGradientProps {
@@ -34,6 +52,17 @@ export interface StrictReactDOMLinearGradientProps {
   x2?: string | number;
   y1?: string | number;
   y2?: string | number;
+}
+
+export interface StrictReactDOMMaskProps {
+  children?: React.ReactNode;
+  height?: string | number;
+  id?: string;
+  maskUnits?: "userSpaceOnUse" | "objectBoundingBox";
+  style?: Styles;
+  width?: string | number;
+  x?: string | number;
+  y?: string | number;
 }
 
 export interface StrictReactDOMPathProps {

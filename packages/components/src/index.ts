@@ -1,3 +1,4 @@
+export * from "./Avatar";
 export * from "./BaseIcon";
 export * from "./Button";
 export * from "./Cryptocurrency";

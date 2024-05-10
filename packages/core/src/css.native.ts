@@ -16,6 +16,10 @@ function processStyle(style: any) {
       Object.assign(result, boxShadowStyles);
       delete result.boxShadow;
     }
+    if (propName === "WebkitLineClamp") {
+      result.lineClamp = styleValue;
+      delete result.WebkitLineClamp;
+    }
   }
   return result;
 }

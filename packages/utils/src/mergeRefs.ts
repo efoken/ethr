@@ -6,8 +6,7 @@ export function mergeRefs<T>(
   const filteredInputRefs = inputRefs.filter(Boolean);
 
   if (filteredInputRefs.length <= 1) {
-    const firstRef = filteredInputRefs[0];
-    return firstRef || null;
+    return filteredInputRefs[0] ?? null;
   }
 
   return (ref) => {

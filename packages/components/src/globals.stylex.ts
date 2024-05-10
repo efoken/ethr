@@ -83,14 +83,14 @@ export const spacing = css.defineVars({
 });
 
 export const sizes = css.defineVars({
-  0: 12,
-  1: 16,
-  2: 20,
-  3: 24,
-  4: 32,
-  5: 40,
-  6: 48,
-  7: 56,
+  0: "12px",
+  1: "16px",
+  2: "20px",
+  3: "24px",
+  4: "32px",
+  5: "40px",
+  6: "48px",
+  7: "56px",
 });
 
 export const borders = css.defineVars({
