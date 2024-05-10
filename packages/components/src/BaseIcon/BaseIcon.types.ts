@@ -1,5 +1,5 @@
 import type { html } from "@ethr/core";
-import { Styles } from "react-strict-dom/dist/types/styles";
+import type { Styles } from "react-strict-dom/dist/types/styles";
 
 export interface BaseIconProps
   extends Omit<React.ComponentProps<typeof html.div>, "children"> {
@@ -7,10 +7,19 @@ export interface BaseIconProps
     React.ComponentProps<typeof html.svg>,
     typeof html.svg
   >;
-  /** @default "circle" */
+  /**
+   * The shape of the component.
+   * @default "circle"
+   */
   shape?: "circle" | "square";
-  /** @default "medium" */
+  /**
+   * The size of the component.
+   * @default "medium"
+   */
   size?: "xxsmall" | "xsmall" | "small" | "medium" | "large" | "xlarge";
+  /**
+   * Override or extend the styles applied to the component.
+   */
   styles?: {
     root?: Styles;
   };

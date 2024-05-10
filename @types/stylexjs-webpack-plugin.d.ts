@@ -1,7 +1,7 @@
 declare module "@stylexjs/webpack-plugin" {
   import type { Compiler, WebpackPluginInstance } from "webpack";
 
-  export type PluginOptions = {
+  export interface PluginOptions {
     babelConfig?: {
       babelrc?: boolean;
       plugins?: any[];
@@ -12,12 +12,12 @@ declare module "@stylexjs/webpack-plugin" {
     filename?: string;
     stylexImports?: (string | { as: string; from: string })[];
     useCSSLayers?: boolean;
-  };
+  }
 
   export default class StylexPlugin implements WebpackPluginInstance {
     constructor(
       config: PluginOptions & {
-        aliases?: { [key: string]: string | string[] };
+        aliases?: Record<string, string | string[]>;
         classNamePrefix?: string;
         genConditionalClasses?: boolean;
         runtimeInjection?: boolean;

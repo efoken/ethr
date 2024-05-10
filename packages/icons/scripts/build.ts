@@ -1,4 +1,4 @@
-import { Config, transform } from "@svgr/core";
+import { transform, type Config } from "@svgr/core";
 import { kebabCase, pascalCase } from "change-case";
 import fetchBuilder from "fetch-retry";
 import fs from "node:fs/promises";

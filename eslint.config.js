@@ -1,4 +1,5 @@
 const { FlatCompat } = require("@eslint/eslintrc");
+const eslintPluginJsdoc = require("eslint-plugin-jsdoc");
 const eslintPluginUnicorn = require("eslint-plugin-unicorn");
 
 const compat = new FlatCompat({
@@ -7,7 +8,14 @@ const compat = new FlatCompat({
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 module.exports = [
-  ...compat.extends("airbnb", "airbnb/hooks", "airbnb-typescript", "prettier"),
+  ...compat.extends(
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "prettier",
+  ),
+  eslintPluginJsdoc.configs["flat/recommended-typescript-error"],
   eslintPluginUnicorn.configs["flat/recommended"],
   {
     ignores: [
@@ -32,6 +40,14 @@ module.exports = [
       "no-restricted-syntax": "off",
       "import/no-extraneous-dependencies": "off",
       "import/prefer-default-export": "off",
+      "jsdoc/multiline-blocks": [
+        "error",
+        {
+          noSingleLineBlocks: true,
+          singleLineTags: ["default"],
+        },
+      ],
+      "jsdoc/require-jsdoc": "off",
       "react/function-component-definition": "off",
       "react/jsx-props-no-spreading": "off",
       "react/no-unused-class-component-methods": "off",
@@ -46,6 +62,8 @@ module.exports = [
           additionalHooks: "useEnhancedEffect",
         },
       ],
+      "@typescript-eslint/consistent-type-exports": "error",
+      "@typescript-eslint/consistent-type-imports": "error",
       "unicorn/filename-case": "off",
       "unicorn/no-array-reduce": "off",
       "unicorn/no-nested-ternary": "off",

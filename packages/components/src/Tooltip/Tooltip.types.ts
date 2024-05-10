@@ -5,7 +5,10 @@ export interface TooltipProps extends Omit<PopoverProps, "open" | "showArrow"> {
   describeChild?: boolean;
   onClose?: () => void;
   onOpen?: () => void;
-  /** @defaut false */
+  /**
+   * If `true`, the component is shown.
+   * @default false
+   */
   open?: boolean;
 }
 

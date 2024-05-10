@@ -1,4 +1,4 @@
-import { StorybookConfig } from "@storybook/nextjs";
+import type { StorybookConfig } from "@storybook/nextjs";
 import StylexPlugin from "@stylexjs/webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
