@@ -5,6 +5,7 @@ import type { StrictHTMLElement } from "react-strict-dom";
 import { colors } from "../globals.stylex";
 import { cryptocurrencyStyles } from "./Cryptocurrency.stylex";
 import type {
+  CryptocurrencyColor,
   CryptocurrencyOwnerState,
   CryptocurrencyProps,
 } from "./Cryptocurrency.types";
@@ -13,6 +14,7 @@ function useUtilityStyles({
   color,
   shape,
   size,
+  styles,
   theme,
 }: CryptocurrencyOwnerState) {
   return {
@@ -21,9 +23,10 @@ function useUtilityStyles({
       cryptocurrencyStyles[`size${capitalize(size)}`],
       cryptocurrencyStyles[`shape${capitalize(shape)}`],
       cryptocurrencyStyles[`theme${capitalize(theme)}`](color),
+      styles?.root,
     ],
-    logo: cryptocurrencyStyles.logo,
-    gradient: cryptocurrencyStyles.gradient,
+    logo: [cryptocurrencyStyles.logo, styles?.logo],
+    gradient: [cryptocurrencyStyles.gradient, styles?.gradient],
   };
 }
 
@@ -40,6 +43,7 @@ export const Cryptocurrency = forwardRef(
       shape = "circle",
       size = "medium",
       style,
+      styles: stylesProp,
       theme = "colored",
       ...props
     } = inProps;
@@ -61,6 +65,7 @@ export const Cryptocurrency = forwardRef(
       color,
       shape,
       size,
+      styles: stylesProp,
       theme,
     };
 
@@ -70,6 +75,7 @@ export const Cryptocurrency = forwardRef(
       <html.div
         ref={ref}
         aria-hidden={ariaLabel ? undefined : true}
+        aria-label={ariaLabel}
         id={idProp}
         role={ariaLabel ? "img" : undefined}
         style={[styles.root, style]}
@@ -115,9 +121,11 @@ export const Cryptocurrency = forwardRef(
   },
 );
 
+Cryptocurrency.displayName = "Cryptocurrency";
+
 export function createCryptocurrency(
   children: NonNullable<CryptocurrencyProps["children"]>,
-  color: NonNullable<CryptocurrencyProps["color"]>,
+  color: CryptocurrencyColor,
   displayName: string,
 ) {
   const Component = (

@@ -86,4 +86,5 @@ export const buttonStyles = css.create({
     color: colors.neutral40,
     pointerEvents: "none",
   }),
+  label: {},
 });

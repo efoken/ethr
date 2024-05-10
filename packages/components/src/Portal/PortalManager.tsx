@@ -41,11 +41,8 @@ export class PortalManager extends PureComponent<{}, PortalManagerState> {
         key={key}
         // @ts-expect-error
         style={{
-          bottom: 0,
-          left: 0,
+          inset: 0,
           position: "absolute",
-          right: 0,
-          top: 0,
         }}
       >
         {children}

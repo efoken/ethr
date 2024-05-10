@@ -1,4 +1,5 @@
 import type { html } from "@ethr/core";
+import type { Styles } from "react-strict-dom/dist/types/styles";
 
 export interface IconButtonProps
   extends React.ComponentProps<typeof html.button> {
@@ -7,8 +8,17 @@ export interface IconButtonProps
   disabled?: boolean;
   /** @default false */
   loading?: boolean;
-  /** @default "medium" */
+  /**
+   * The size of the component.
+   * @default "medium"
+   */
   size?: "small" | "medium" | "large" | "xlarge";
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  styles?: {
+    root?: Styles;
+  };
   /** @default "rectangle" */
   theme?: "rectangle" | "rounded";
   /** @default "primary" */
@@ -17,4 +27,7 @@ export interface IconButtonProps
 
 export type IconButtonOwnerState = Required<
   Pick<IconButtonProps, "disabled" | "size" | "theme" | "variant">
->;
+> &
+  Pick<IconButtonProps, "styles">;
+
+export type IconButtonStyleKey = keyof NonNullable<IconButtonProps["styles"]>;

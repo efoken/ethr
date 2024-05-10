@@ -1,6 +1,6 @@
 import { css } from "@ethr/core";
 import { borders, colors, shadows, spacing } from "../globals.stylex";
-import { typography } from "../typography.stylex";
+import { fonts, typography } from "../typography.stylex";
 
 export const scorecardStyles = css.create({
   root: {
@@ -42,12 +42,12 @@ export const scorecardStyles = css.create({
   label: {
     ...css.include(typography.bodySmall),
     color: colors.neutral60,
-    fontWeight: "600",
+    fontWeight: fonts.weightSemibold,
   },
   count: {
     ...css.include(typography.headingH4),
     color: colors.neutral100,
-    fontWeight: "600",
+    fontWeight: fonts.weightSemibold,
   },
   percentage: {
     display: "flex",
@@ -57,6 +57,6 @@ export const scorecardStyles = css.create({
   percentageLabel: {
     ...css.include(typography.bodySmall),
     color: colors.neutral60,
-    fontWeight: "600",
+    fontWeight: fonts.weightSemibold,
   },
 });

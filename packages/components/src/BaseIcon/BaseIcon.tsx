@@ -49,7 +49,7 @@ export const BaseIcon = forwardRef(
     return (
       <html.div
         ref={ref}
-        aria-hidden={ariaLabel ? undefined : true}
+        aria-label={ariaLabel}
         role={ariaLabel ? "img" : undefined}
         style={[styles.root, style]}
         {...props}
@@ -64,3 +64,5 @@ export const BaseIcon = forwardRef(
     );
   },
 );
+
+BaseIcon.displayName = "BaseIcon";

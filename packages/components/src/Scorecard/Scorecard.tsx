@@ -64,3 +64,5 @@ export const Scorecard = forwardRef(
     );
   },
 );
+
+Scorecard.displayName = "Scorecard";

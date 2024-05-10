@@ -1,6 +1,6 @@
 import { html } from "@ethr/core";
 import { forwardRef, isValidElement, memo } from "react";
-import { IconProps } from "./Icon.types";
+import type { IconProps } from "./Icon.types";
 
 export const Icon = forwardRef(
   (inProps: IconProps, ref: React.ForwardedRef<any>) => {
@@ -21,6 +21,7 @@ export const Icon = forwardRef(
       <html.svg
         ref={ref}
         aria-hidden={ariaLabel ? undefined : true}
+        aria-label={ariaLabel}
         fill={color}
         height={size}
         role={ariaLabel ? "img" : undefined}
@@ -34,6 +35,8 @@ export const Icon = forwardRef(
     );
   },
 );
+
+Icon.displayName = "Icon";
 
 export function createIcon(
   children: IconProps["children"],

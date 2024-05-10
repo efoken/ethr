@@ -10,6 +10,7 @@ function useUtilityStyles({
   color,
   disabled,
   size,
+  styles,
   theme,
   variant,
 }: ButtonOwnerState) {
@@ -20,8 +21,9 @@ function useUtilityStyles({
       buttonStyles[`variant${capitalize(variant)}`](color),
       buttonStyles[`theme${capitalize(theme)}`],
       disabled && buttonStyles.disabled(variant),
+      styles?.root,
     ],
-    label: [],
+    label: [buttonStyles.label, styles?.label],
   };
 }
 
@@ -35,6 +37,7 @@ export const Button = forwardRef(
       prefix,
       size = "medium",
       style,
+      styles: stylesProp,
       suffix,
       theme = "rectangle",
       variant = "primary",
@@ -58,6 +61,7 @@ export const Button = forwardRef(
       color,
       disabled,
       size,
+      styles: stylesProp,
       theme,
       variant,
     };
@@ -87,3 +91,5 @@ export const Button = forwardRef(
     );
   },
 );
+
+Button.displayName = "Button";

@@ -9,6 +9,7 @@ import type { IconButtonOwnerState, IconButtonProps } from "./IconButton.types";
 function useUtilityStyles({
   disabled,
   size,
+  styles,
   theme,
   variant,
 }: IconButtonOwnerState) {
@@ -19,6 +20,7 @@ function useUtilityStyles({
       iconButtonStyles[`variant${capitalize(variant)}`],
       iconButtonStyles[`theme${capitalize(theme)}`],
       disabled && iconButtonStyles.disabled(variant),
+      styles?.root,
     ],
   };
 }
@@ -31,6 +33,7 @@ export const IconButton = forwardRef(
       loading = false,
       size = "medium",
       style,
+      styles: stylesProp,
       theme = "rectangle",
       variant = "primary",
       ...props
@@ -52,6 +55,7 @@ export const IconButton = forwardRef(
     const ownerState = {
       disabled,
       size,
+      styles: stylesProp,
       theme,
       variant,
     };
@@ -75,3 +79,5 @@ export const IconButton = forwardRef(
     );
   },
 );
+
+IconButton.displayName = "IconButton";

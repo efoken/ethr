@@ -42,7 +42,9 @@ export interface PopoverProps
     | PopoverModifier<"shift", ShiftOptions>
     | PopoverModifier<"size", SizeOptions>
   )[];
-  /** If `true`, the component is shown. */
+  /**
+   * If `true`, the component is shown.
+   */
   open: boolean;
   /**
    * Popover placement.
@@ -51,7 +53,9 @@ export interface PopoverProps
   placement?: PopoverPlacement;
   /** @default false */
   showArrow?: boolean;
-  /** Override or extend the styles applied to the component. */
+  /**
+   * Override or extend the styles applied to the component.
+   */
   styles?: {
     root?: Styles;
     content?: Styles;

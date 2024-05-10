@@ -177,4 +177,6 @@ export const Popover = forwardRef(
   },
 );
 
+Popover.displayName = "Popover";
+
 export default Popover;

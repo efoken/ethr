@@ -1,5 +1,7 @@
 import { css } from "@ethr/core";
-import { borders, colors } from "../globals.stylex";
+import { isString } from "@ethr/utils";
+import { borders, colors, sizes } from "../globals.stylex";
+import type { CryptocurrencyColor } from "./Cryptocurrency.types";
 
 export const cryptocurrencyStyles = css.create({
   root: {
@@ -11,20 +13,20 @@ export const cryptocurrencyStyles = css.create({
     position: "relative",
   },
   sizeXlarge: {
-    height: 56,
-    width: 56,
+    height: sizes[7],
+    width: sizes[7],
   },
   sizeLarge: {
-    height: 48,
-    width: 48,
+    height: sizes[6],
+    width: sizes[6],
   },
   sizeMedium: {
-    height: 40,
-    width: 40,
+    height: sizes[5],
+    width: sizes[5],
   },
   sizeSmall: {
-    height: 32,
-    width: 32,
+    height: sizes[4],
+    width: sizes[4],
   },
   shapeCircle: {
     borderRadius: borders.radius3,
@@ -34,9 +36,9 @@ export const cryptocurrencyStyles = css.create({
     borderRadius: borders.radius0,
     overflow: "hidden",
   },
-  themeColored: (color: string | string[]) => ({
-    backgroundColor: color,
-    borderColor: color,
+  themeColored: (color: CryptocurrencyColor) => ({
+    backgroundColor: isString(color) ? color : undefined,
+    borderColor: isString(color) ? color : undefined,
   }),
   themeLight: () => ({
     borderColor: colors.neutral20,

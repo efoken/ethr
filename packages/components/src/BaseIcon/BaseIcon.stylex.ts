@@ -1,5 +1,5 @@
 import { css } from "@ethr/core";
-import { borders, colors } from "../globals.stylex";
+import { borders, colors, sizes } from "../globals.stylex";
 
 export const baseIconStyles = css.create({
   root: {
@@ -11,28 +11,28 @@ export const baseIconStyles = css.create({
     justifyContent: "center",
   },
   sizeXlarge: {
-    height: 56,
-    width: 56,
+    height: sizes[7],
+    width: sizes[7],
   },
   sizeLarge: {
-    height: 48,
-    width: 48,
+    height: sizes[6],
+    width: sizes[6],
   },
   sizeMedium: {
-    height: 40,
-    width: 40,
+    height: sizes[5],
+    width: sizes[5],
   },
   sizeSmall: {
-    height: 32,
-    width: 32,
+    height: sizes[4],
+    width: sizes[4],
   },
   sizeXsmall: {
-    height: 24,
-    width: 24,
+    height: sizes[3],
+    width: sizes[3],
   },
   sizeXxsmall: {
-    height: 20,
-    width: 20,
+    height: sizes[2],
+    width: sizes[2],
   },
   shapeCircle: {
     borderRadius: borders.radius3,

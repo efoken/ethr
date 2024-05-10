@@ -1,6 +1,7 @@
 import { html } from "@ethr/core";
 import {
   createChainedFunction,
+  isString,
   supportsPointerEvent,
   useOpenState,
 } from "@ethr/utils";
@@ -53,7 +54,7 @@ export const Tooltip = forwardRef(
     const anchor = isValidElement<any>(anchorProp)
       ? cloneElement(anchorProp, {
           title:
-            typeof children === "string" && describeChild
+            describeChild && isString(children)
               ? children
               : anchorProp.props.title,
           ...(supportsPointerEvent()
@@ -116,12 +117,10 @@ export const Tooltip = forwardRef(
         }}
         {...props}
       >
-        {typeof children === "string" ? (
-          <html.span>{children}</html.span>
-        ) : (
-          children
-        )}
+        {isString(children) ? <html.span>{children}</html.span> : children}
       </Popover>
     );
   },
 );
+
+Tooltip.displayName = "Tooltip";

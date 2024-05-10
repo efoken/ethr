@@ -1,2 +1,5 @@
 export { Cryptocurrency, createCryptocurrency } from "./Cryptocurrency";
-export type { CryptocurrencyProps } from "./Cryptocurrency.types";
+export type {
+  CryptocurrencyProps,
+  CryptocurrencyStyleKey,
+} from "./Cryptocurrency.types";
