@@ -6,6 +6,7 @@ import {
   Defs,
   Ellipse,
   G,
+  Line,
   LinearGradient,
   Mask,
   Path,
@@ -21,6 +22,7 @@ import type {
   StrictReactDOMDefsProps,
   StrictReactDOMEllipseProps,
   StrictReactDOMGProps,
+  StrictReactDOMLineProps,
   StrictReactDOMLinearGradientProps,
   StrictReactDOMMaskProps,
   StrictReactDOMPathProps,
@@ -60,6 +62,12 @@ const StrictEllipse = forwardRef<any, StrictReactDOMEllipseProps>(
   ),
 );
 
+const StrictLine = forwardRef<any, StrictReactDOMLineProps>(
+  ({ stroke, ...props }, ref) => (
+    <Line ref={ref} stroke={getCustomProperty(stroke)} {...props} />
+  ),
+);
+
 const StrictPath = forwardRef<any, StrictReactDOMPathProps>(
   ({ fill, stroke, ...props }, ref) => (
     <Path
@@ -96,6 +104,7 @@ export const html: typeof rsdHtml & {
     StrictReactDOMEllipseProps & React.RefAttributes<any>
   >;
   g: React.ComponentType<StrictReactDOMGProps & React.RefAttributes<any>>;
+  line: React.ComponentType<StrictReactDOMLineProps & React.RefAttributes<any>>;
   linearGradient: React.ComponentType<
     StrictReactDOMLinearGradientProps & React.RefAttributes<any>
   >;
@@ -111,6 +120,7 @@ export const html: typeof rsdHtml & {
   defs: Defs,
   ellipse: StrictEllipse,
   g: G,
+  line: StrictLine,
   linearGradient: LinearGradient,
   mask: Mask,
   path: StrictPath,

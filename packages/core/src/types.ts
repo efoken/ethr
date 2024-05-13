@@ -44,6 +44,16 @@ export interface StrictReactDOMGProps {
   mask?: string;
 }
 
+export interface StrictReactDOMLineProps {
+  stroke?: string;
+  strokeLinecap?: "butt" | "square" | "round";
+  strokeWidth?: string | number;
+  x1?: string | number;
+  x2?: string | number;
+  y1?: string | number;
+  y2?: string | number;
+}
+
 export interface StrictReactDOMLinearGradientProps {
   children?: React.ReactElement[];
   gradientUnits?: "userSpaceOnUse" | "objectBoundingBox";

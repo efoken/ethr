@@ -1,6 +1,6 @@
 import {
-  Avatar,
   Button,
+  Checkbox,
   Popover,
   PortalProvider,
   Scorecard,
@@ -54,9 +54,6 @@ const styles = css.create({
   text: {
     marginBottom: 16,
   },
-  avatar: {
-    marginBottom: 16,
-  },
   grid: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -91,13 +88,7 @@ export default function App() {
         <html.p style={styles.text}>
           Open up App.js to start working on your app!
         </html.p>
-        <Avatar
-          alt="Amy"
-          src="https://images.unsplash.com/photo-1614769842925-8193ebda68b5?w=56&h=56&auto=format&fit=crop"
-          srcSet="https://images.unsplash.com/photo-1614769842925-8193ebda68b5?w=56&h=56&dpr=2&auto=format&fit=crop 2x, https://images.unsplash.com/photo-1614769842925-8193ebda68b5?w=56&h=56&dpr=3&auto=format&fit=crop 3x"
-          size="xlarge"
-          style={styles.avatar}
-        />
+        <Checkbox defaultChecked>Text Label</Checkbox>
         <Popover
           showArrow
           anchor={

@@ -48,6 +48,8 @@ module.exports = [
         },
       ],
       "jsdoc/require-jsdoc": "off",
+      "jsdoc/require-param": "off",
+      "jsdoc/require-returns": "off",
       "react/function-component-definition": "off",
       "react/jsx-props-no-spreading": "off",
       "react/no-unused-class-component-methods": "off",

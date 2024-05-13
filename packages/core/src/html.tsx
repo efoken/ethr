@@ -7,6 +7,7 @@ import type {
   StrictReactDOMDefsProps,
   StrictReactDOMEllipseProps,
   StrictReactDOMGProps,
+  StrictReactDOMLineProps,
   StrictReactDOMLinearGradientProps,
   StrictReactDOMMaskProps,
   StrictReactDOMPathProps,
@@ -34,6 +35,7 @@ export const html: typeof rsdHtml & {
     StrictReactDOMEllipseProps & React.RefAttributes<any>
   >;
   g: React.ComponentType<StrictReactDOMGProps & React.RefAttributes<any>>;
+  line: React.ComponentType<StrictReactDOMLineProps & React.RefAttributes<any>>;
   linearGradient: React.ComponentType<
     StrictReactDOMLinearGradientProps & React.RefAttributes<any>
   >;
@@ -49,6 +51,7 @@ export const html: typeof rsdHtml & {
   defs: "defs" as any,
   ellipse: "ellipse" as any,
   g: "g" as any,
+  line: "line" as any,
   linearGradient: "linearGradient" as any,
   mask: "mask" as any,
   path: "path" as any,
