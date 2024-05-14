@@ -129,14 +129,14 @@ export function createCryptocurrency(
   displayName: string,
 ) {
   const Component = (
-    props: Omit<CryptocurrencyProps, "children">,
+    props: Omit<CryptocurrencyProps, "children" | "color">,
     ref: React.ForwardedRef<StrictHTMLElement>,
   ) => (
     <Cryptocurrency
       ref={ref}
       data-testid={`${displayName}Cryptocurrency`}
-      color={color}
       {...props}
+      color={color}
     >
       {children}
     </Cryptocurrency>
@@ -145,7 +145,7 @@ export function createCryptocurrency(
   Component.displayName = `${displayName}Cryptocurrency`;
 
   return memo(forwardRef(Component)) as React.ForwardRefExoticComponent<
-    Omit<CryptocurrencyProps, "children"> &
+    Omit<CryptocurrencyProps, "children" | "color"> &
       React.RefAttributes<StrictHTMLElement>
   >;
 }

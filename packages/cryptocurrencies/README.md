@@ -1,1 +1,1 @@
-# icons
+# cryptocurrencies

@@ -5,6 +5,7 @@ export * from "./Checkbox";
 export * from "./Cryptocurrency";
 export * from "./Icon";
 export * from "./IconButton";
+export * from "./PaymentMethod";
 export * from "./Popover";
 export * from "./Portal";
 export * from "./Radio";

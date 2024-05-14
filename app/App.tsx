@@ -6,29 +6,9 @@ import {
   Scorecard,
 } from "@ethr/components";
 import { css, html } from "@ethr/core";
-import {
-  Avalanche,
-  BinanceUsd,
-  Bitcoin,
-  Bnb,
-  Cardano,
-  Chainlink,
-  Dai,
-  Dogecoin,
-  Ether,
-  NearProtocol,
-  Polkadot,
-  Polygon,
-  ShibaInu,
-  Solana,
-  Terra,
-  Tether,
-  Tron,
-  UsdCoin,
-  Waves,
-  Xrp,
-} from "@ethr/cryptocurrencies";
+import { Cardano, Dai } from "@ethr/cryptocurrencies";
 import { TaxiFilled } from "@ethr/icons";
+import { Payoneer } from "@ethr/payment-methods";
 import {
   NotoSans_400Regular,
   NotoSans_600SemiBold,
@@ -105,26 +85,7 @@ export default function App() {
           <Dai />
         </Popover>
         <html.div style={styles.grid}>
-          <Bitcoin />
-          <Ether />
-          <Tether />
-          <Bnb />
-          <UsdCoin />
-          <Solana />
-          <Xrp />
-          <Cardano />
-          <Terra />
-          <Avalanche />
-          <Polkadot />
-          <Dogecoin />
-          <BinanceUsd />
-          <Chainlink />
-          <Polygon />
-          <NearProtocol />
-          <Tron />
-          <Waves />
-          <ShibaInu />
-          <Dai />
+          <Payoneer />
         </html.div>
         <Scorecard
           count="$198,298"

@@ -1,4 +1,4 @@
-import { memoize } from "@ethr/utils";
+import { isString, memoize } from "@ethr/utils";
 import { forwardRef } from "react";
 import {
   Circle,
@@ -6,13 +6,17 @@ import {
   Defs,
   Ellipse,
   G,
+  Image,
   Line,
   LinearGradient,
   Mask,
   Path,
+  Pattern,
   Rect,
   Stop,
   Svg,
+  SvgFromXml,
+  Use,
 } from "react-native-svg";
 import { html as rsdHtml } from "react-strict-dom";
 import { css } from "./css";
@@ -22,13 +26,16 @@ import type {
   StrictReactDOMDefsProps,
   StrictReactDOMEllipseProps,
   StrictReactDOMGProps,
+  StrictReactDOMImageProps,
   StrictReactDOMLineProps,
   StrictReactDOMLinearGradientProps,
   StrictReactDOMMaskProps,
   StrictReactDOMPathProps,
+  StrictReactDOMPatternProps,
   StrictReactDOMRectProps,
   StrictReactDOMStopProps,
   StrictReactDOMSvgProps,
+  StrictReactDOMUseProps,
 } from "./types";
 
 const getCustomProperty = memoize((value?: string) =>
@@ -39,15 +46,25 @@ const getCustomProperty = memoize((value?: string) =>
 );
 
 const StrictSvg = forwardRef<any, StrictReactDOMSvgProps>(
-  ({ "data-testid": testID, fill, style, ...props }, ref) => (
-    <Svg
-      ref={ref}
-      fill={getCustomProperty(fill)}
-      testID={testID}
-      {...css.props(style)}
-      {...props}
-    />
-  ),
+  ({ children, "data-testid": testID, fill, style, ...props }, ref) =>
+    isString(children) ? (
+      <SvgFromXml
+        ref={ref}
+        fill={getCustomProperty(fill)}
+        testID={testID}
+        xml={children}
+        {...css.props(style)}
+        {...props}
+      />
+    ) : (
+      <Svg
+        ref={ref}
+        fill={getCustomProperty(fill)}
+        testID={testID}
+        {...css.props(style)}
+        {...props}
+      />
+    ),
 );
 
 const StrictCircle = forwardRef<any, StrictReactDOMCircleProps>(
@@ -104,14 +121,21 @@ export const html: typeof rsdHtml & {
     StrictReactDOMEllipseProps & React.RefAttributes<any>
   >;
   g: React.ComponentType<StrictReactDOMGProps & React.RefAttributes<any>>;
+  image: React.ComponentType<
+    StrictReactDOMImageProps & React.RefAttributes<any>
+  >;
   line: React.ComponentType<StrictReactDOMLineProps & React.RefAttributes<any>>;
   linearGradient: React.ComponentType<
     StrictReactDOMLinearGradientProps & React.RefAttributes<any>
   >;
   mask: React.ComponentType<StrictReactDOMMaskProps & React.RefAttributes<any>>;
   path: React.ComponentType<StrictReactDOMPathProps & React.RefAttributes<any>>;
+  pattern: React.ComponentType<
+    StrictReactDOMPatternProps & React.RefAttributes<any>
+  >;
   rect: React.ComponentType<StrictReactDOMRectProps & React.RefAttributes<any>>;
   stop: React.ComponentType<StrictReactDOMStopProps & React.RefAttributes<any>>;
+  use: React.ComponentType<StrictReactDOMUseProps & React.RefAttributes<any>>;
 } = {
   ...rsdHtml,
   svg: StrictSvg,
@@ -120,10 +144,14 @@ export const html: typeof rsdHtml & {
   defs: Defs,
   ellipse: StrictEllipse,
   g: G,
+  image: Image,
   line: StrictLine,
   linearGradient: LinearGradient,
   mask: Mask,
   path: StrictPath,
+  pattern: Pattern,
   rect: StrictRect,
   stop: StrictStop,
+  // @ts-expect-error
+  use: Use,
 };

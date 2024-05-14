@@ -12,6 +12,7 @@ export interface StrictReactDOMSvgProps {
   viewBox?: string;
   width?: string | number;
   xmlns?: string;
+  xmlnsXlink?: string;
 }
 
 export interface StrictReactDOMCircleProps {
@@ -42,6 +43,13 @@ export interface StrictReactDOMGProps {
   children?: React.ReactNode;
   clipPath?: string;
   mask?: string;
+}
+
+export interface StrictReactDOMImageProps {
+  height?: string | number;
+  id?: string;
+  width?: string | number;
+  xlinkHref?: any;
 }
 
 export interface StrictReactDOMLineProps {
@@ -84,15 +92,29 @@ export interface StrictReactDOMPathProps {
   stroke?: string;
 }
 
+export interface StrictReactDOMPatternProps {
+  children?: React.ReactNode;
+  height?: string | number;
+  id?: string;
+  patternContentUnits?: "userSpaceOnUse" | "objectBoundingBox";
+  width?: string | number;
+}
+
 export interface StrictReactDOMRectProps {
   fill?: string;
   height?: string | number;
   rx?: string | number;
   width?: string | number;
+  y?: string | number;
 }
 
 export interface StrictReactDOMStopProps {
   offset?: string | number;
   stopColor?: string;
   stopOpacity?: string | number;
+}
+
+export interface StrictReactDOMUseProps {
+  transform?: string;
+  xlinkHref?: string;
 }

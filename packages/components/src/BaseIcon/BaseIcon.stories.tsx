@@ -10,7 +10,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
-  render: (args) => <BaseIcon {...args} />,
   args: {
     children: <ArrowUpOutline />,
   },
