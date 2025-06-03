@@ -1,7 +1,8 @@
+"use client";
+
 import { html } from "@ethr/core";
 import { capitalize } from "@ethr/utils";
 import { cloneElement, forwardRef } from "react";
-import type { StrictHTMLElement } from "react-strict-dom";
 import { colors } from "../globals.stylex";
 import { buttonStyles } from "./Button.stylex";
 import type { ButtonOwnerState, ButtonProps } from "./Button.types";
@@ -28,7 +29,7 @@ function useUtilityStyles({
 }
 
 export const Button = forwardRef(
-  (inProps: ButtonProps, ref: React.ForwardedRef<StrictHTMLElement>) => {
+  (inProps: ButtonProps, ref: React.ForwardedRef<HTMLButtonElement>) => {
     const {
       children,
       color = "primary",

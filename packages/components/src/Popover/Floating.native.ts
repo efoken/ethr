@@ -12,7 +12,6 @@ import type {
 import { useFloating as useNativeFloating } from "@floating-ui/react-native";
 import { useEffect, useState } from "react";
 import { Keyboard, useWindowDimensions } from "react-native";
-import type { StrictElement, StrictHTMLElement } from "react-strict-dom";
 
 export type { VirtualElement } from "@floating-ui/react-dom";
 export {
@@ -36,12 +35,12 @@ export type ShiftOptions = InferProps<typeof shift>;
 
 export type SizeOptions = InferProps<typeof size>;
 
-type ReferenceType = StrictElement | VirtualElement;
+type ReferenceType = Element | VirtualElement;
 
 export interface UseFloatingOptions<T extends ReferenceType = ReferenceType>
   extends Omit<UseNativeFloatingOptions, "elements"> {
   elements?: {
-    floating?: StrictHTMLElement | null;
+    floating?: HTMLElement | null;
     offsetParent?: any;
     reference?: T | null;
   };
@@ -52,7 +51,7 @@ export interface UseFloatingOptions<T extends ReferenceType = ReferenceType>
 export interface UseFloatingReturn<T extends ReferenceType = ReferenceType>
   extends Omit<UseNativeFloatingReturn, "elements"> {
   elements: {
-    floating: StrictHTMLElement | null;
+    floating: HTMLElement | null;
     offsetParent: any;
     reference: T | null;
   };

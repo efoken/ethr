@@ -8,9 +8,10 @@ const meta = {
 } satisfies Meta<typeof Popover>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
+export const Default: Story = {
   args: {
     anchor: <Button>Open popover</Button>,
     children: <Dai />,

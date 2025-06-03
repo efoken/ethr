@@ -1,7 +1,6 @@
 import { html } from "@ethr/core";
 import { capitalize } from "@ethr/utils";
 import { cloneElement, forwardRef } from "react";
-import type { StrictHTMLElement } from "react-strict-dom";
 import { colors } from "../globals.stylex";
 import { baseIconStyles } from "./BaseIcon.stylex";
 import type { BaseIconOwnerState, BaseIconProps } from "./BaseIcon.types";
@@ -18,7 +17,7 @@ function useUtilityStyles({ shape, size, styles }: BaseIconOwnerState) {
 }
 
 export const BaseIcon = forwardRef(
-  (inProps: BaseIconProps, ref: React.ForwardedRef<StrictHTMLElement>) => {
+  (inProps: BaseIconProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       "aria-label": ariaLabel,
       children,

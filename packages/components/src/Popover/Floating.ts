@@ -8,7 +8,6 @@ import {
   autoUpdate,
   useFloating as useDomFloating,
 } from "@floating-ui/react-dom";
-import type { StrictElement, StrictHTMLElement } from "react-strict-dom";
 
 export {
   arrow,
@@ -27,18 +26,18 @@ export type {
   VirtualElement,
 } from "@floating-ui/react-dom";
 
-type ReferenceType = StrictElement | VirtualElement;
+type ReferenceType = Element | VirtualElement;
 
 export interface UseFloatingOptions<T extends ReferenceType = ReferenceType>
   extends Omit<UseDomFloatingOptions<T>, "elements" | "whileElementsMounted"> {
   elements?: {
-    floating?: StrictHTMLElement | null;
+    floating?: HTMLElement | null;
     reference?: T | null;
   };
   sameScrollView?: boolean;
   whileElementsMounted?: (
     reference: T,
-    floating: StrictHTMLElement,
+    floating: HTMLElement,
     update: () => void,
   ) => () => void;
 }
@@ -47,15 +46,15 @@ export interface UseFloatingReturn<T extends ReferenceType = ReferenceType>
   extends Omit<UseDomFloatingReturn<T>, "elements" | "refs"> {
   context?: any;
   elements: {
-    floating: StrictHTMLElement | null;
+    floating: HTMLElement | null;
     reference: T | null;
   };
   getFloatingProps?: (props: { ref: any; [key: string]: any }) => any;
   getReferenceProps?: (props: { ref: any; [key: string]: any }) => any;
   refs: {
-    floating: React.MutableRefObject<StrictHTMLElement | null>;
+    floating: React.MutableRefObject<HTMLElement | null>;
     reference: React.MutableRefObject<T | null>;
-    setFloating: (node: StrictHTMLElement | null) => void;
+    setFloating: (node: HTMLElement | null) => void;
     setReference: (node: T | null) => void;
   };
 }
@@ -86,11 +85,6 @@ export function useAutoUpdate<T extends ReferenceType = ReferenceType>({
       return;
     }
     // Only call this when the floating element is rendered
-    return autoUpdate(
-      refs.reference.current,
-      // @ts-expect-error
-      refs.floating.current,
-      update,
-    );
+    return autoUpdate(refs.reference.current, refs.floating.current, update);
   }, [open, refs.floating, refs.reference, update]);
 }

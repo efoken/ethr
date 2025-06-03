@@ -1,7 +1,6 @@
 import { html } from "@ethr/core";
 import { capitalize } from "@ethr/utils";
 import { cloneElement, forwardRef } from "react";
-import type { StrictHTMLElement } from "react-strict-dom";
 import { colors } from "../globals.stylex";
 import { iconButtonStyles } from "./IconButton.stylex";
 import type { IconButtonOwnerState, IconButtonProps } from "./IconButton.types";
@@ -26,7 +25,7 @@ function useUtilityStyles({
 }
 
 export const IconButton = forwardRef(
-  (inProps: IconButtonProps, ref: React.ForwardedRef<StrictHTMLElement>) => {
+  (inProps: IconButtonProps, ref: React.ForwardedRef<HTMLButtonElement>) => {
     const {
       children,
       disabled = false,

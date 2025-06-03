@@ -28,9 +28,10 @@ const meta = {
 } satisfies Meta<typeof Cryptocurrency>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
+export const Default: Story = {
   render: (args) => (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
       <Bitcoin {...args} />

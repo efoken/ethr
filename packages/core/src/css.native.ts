@@ -1,20 +1,17 @@
 import { isFunction, isString } from "@ethr/utils";
 import { css as rsdCss } from "react-strict-dom";
-import { CSSBoxShadow } from "./CSSBoxShadow";
+import type { Styles } from "./types";
+
+const webStyles = new Set(["cursor"]);
 
 function processStyle(style: any) {
   const result = { ...style };
   for (const [propName, styleValue] of Object.entries(result)) {
-    if (propName === "cursor") {
-      delete result.cursor;
-    }
     if (propName === "display" && isString(styleValue)) {
       result.display = styleValue.replace(/^inline-/, "");
     }
-    if (propName === "boxShadow" && isString(styleValue)) {
-      const boxShadowStyles = new CSSBoxShadow(styleValue).resolve();
-      Object.assign(result, boxShadowStyles);
-      delete result.boxShadow;
+    if (webStyles.has(propName)) {
+      delete result[propName];
     }
     if (propName === "WebkitLineClamp") {
       result.lineClamp = styleValue;
@@ -41,11 +38,17 @@ function include(obj: any) {
   return obj;
 }
 
+function inline(obj: any) {
+  return obj;
+}
+
 export const css: typeof rsdCss & {
   __customProperties: Record<string, any>;
+  inline: (style: React.CSSProperties) => Styles;
 } = {
   __customProperties: {},
   ...rsdCss,
   create,
   include,
+  inline,
 };

@@ -1,9 +1,9 @@
 {
   "name": "@ethr/payment-methods",
   "version": "1.0.0",
+  "license": "MIT",
   "type": "module",
   "main": "src/index.ts",
-  "license": "MIT",
   "dependencies": {
     "@ethr/components": "workspace:*",
     "@ethr/core": "workspace:*"

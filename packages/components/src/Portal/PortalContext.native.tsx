@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-classes-per-file
 import { html } from "@ethr/core";
 import { Component, createContext } from "react";
 import type {
@@ -83,10 +82,10 @@ export class PortalProvider extends Component<PortalProviderProps> {
       const index = this.queue.findIndex(
         (a) => a.type === "mount" || (a.type === "update" && a.key === key),
       );
-      if (index > -1) {
-        this.queue[index] = action;
-      } else {
+      if (index === -1) {
         this.queue.push(action);
+      } else {
+        this.queue[index] = action;
       }
     }
   };
@@ -159,6 +158,7 @@ export class PortalConsumer extends Component<PortalConsumerProps> {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/class-methods-use-this
   render() {
     return null;
   }

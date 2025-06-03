@@ -7,9 +7,10 @@ const meta = {
 } satisfies Meta<typeof BaseIcon>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
+export const Default: Story = {
   args: {
     children: <ArrowUpOutline />,
   },

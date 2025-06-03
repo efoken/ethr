@@ -36,7 +36,7 @@ function normalizeName(str: string) {
 }
 
 async function fetch(url: RequestInfo, init?: RequestInit) {
-  const fetchRetry = fetchBuilder(global.fetch, {
+  const fetchRetry = fetchBuilder(globalThis.fetch, {
     retries: 3,
     retryDelay: 1000,
     retryOn: [429],

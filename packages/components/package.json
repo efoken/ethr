@@ -1,25 +1,25 @@
 {
   "name": "@ethr/components",
   "version": "1.0.0",
+  "license": "MIT",
   "type": "module",
   "main": "src/index.ts",
-  "license": "MIT",
   "dependencies": {
     "@ethr/core": "workspace:*",
     "@ethr/utils": "workspace:*",
-    "@floating-ui/react-dom": "^2.0.9",
-    "@floating-ui/react-native": "^0.10.5",
-    "react-strict-dom": "^0.0.10"
+    "@floating-ui/react-dom": "^2.1.2",
+    "@floating-ui/react-native": "^0.10.6",
+    "react-strict-dom": "^0.0.34"
   },
   "devDependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.74.1"
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-native": "0.76.7"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-native": ">=0.74.0"
+    "react-native": ">=0.75.0"
   },
   "peerDependenciesMeta": {
     "react-dom": {

@@ -1,8 +1,10 @@
-module.exports = {
+import type { ExpoConfig } from "@expo/config-types";
+
+const config: ExpoConfig = {
   name: "ethr",
   slug: "ethr",
   version: "1.0.0",
-  orientation: "portrait",
+  orientation: "default",
   icon: "./assets/icon.png",
   userInterfaceStyle: "light",
   splash: {
@@ -13,35 +15,27 @@ module.exports = {
   assetBundlePatterns: ["**/*"],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: "com.strictui.app",
+    bundleIdentifier: "com.ethr.app",
   },
   android: {
     adaptiveIcon: {
       foregroundImage: "./assets/adaptive-icon.png",
       backgroundColor: "#fff",
     },
-    package: "com.strictui.app",
+    package: "com.ethr.app",
   },
   web: {
     favicon: "./assets/favicon.png",
   },
+  newArchEnabled: true,
   plugins: [
     [
       "expo-dev-launcher",
       {
-        launchModeExperimental: "most-recent",
-      },
-    ],
-    [
-      "expo-build-properties",
-      {
-        ios: {
-          newArchEnabled: true,
-        },
-        android: {
-          newArchEnabled: true,
-        },
+        launchMode: "most-recent",
       },
     ],
   ],
 };
+
+export default config;

@@ -13,8 +13,8 @@ node_modules/
 !.yarn/versions
 
 # build
-dist/
 .next/
+dist/
 
 .env.local
 .figmarc.json

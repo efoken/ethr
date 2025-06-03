@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useLayoutEffect } from "react";
 
 /**
@@ -10,4 +12,4 @@ import { useEffect, useLayoutEffect } from "react";
  * it doesn't apply to your use-case.
  */
 export const useEnhancedEffect =
-  typeof window === "undefined" ? useEffect : useLayoutEffect;
+  typeof globalThis === "undefined" ? useEffect : useLayoutEffect;

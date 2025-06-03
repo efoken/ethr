@@ -1,5 +1,4 @@
-import type { html } from "@ethr/core";
-import type { Styles } from "react-strict-dom/dist/types/styles";
+import type { html, Styles } from "@ethr/core";
 
 export type CryptocurrencyColor =
   | string

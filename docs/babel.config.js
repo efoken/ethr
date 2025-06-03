@@ -1,15 +1,14 @@
 module.exports = {
-  presets: ["next/babel"],
+  presets: ["next/babel", "react-strict-dom/babel-preset"],
   plugins: [
-    "react-strict-dom/babel",
     [
       "@stylexjs/babel-plugin",
       {
         dev: true,
-        runtimeInjection: false,
         // genConditionalClasses: true,
+        importSources: [{ from: "@ethr/core", as: "css" }],
+        runtimeInjection: true,
         treeshakeCompensation: true,
-        importSources: [{ from: "@ethr/core", as: "css" }, "@stylexjs/stylex"],
         unstable_moduleResolution: {
           type: "commonJS",
           rootDir: __dirname,

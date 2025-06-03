@@ -1,4 +1,6 @@
 const { FlatCompat } = require("@eslint/eslintrc");
+const stylisticPlugin = require("@stylistic/eslint-plugin");
+const eslintConfigPrettier = require("eslint-config-prettier");
 const eslintPluginJsdoc = require("eslint-plugin-jsdoc");
 const eslintPluginUnicorn = require("eslint-plugin-unicorn");
 
@@ -11,12 +13,19 @@ module.exports = [
   ...compat.extends(
     "airbnb",
     "airbnb/hooks",
-    "airbnb-typescript",
+    "@kesills/airbnb-typescript",
     "plugin:@typescript-eslint/stylistic-type-checked",
-    "prettier",
   ),
+  {
+    rules: Object.fromEntries(
+      Object.keys(stylisticPlugin.configs["all-flat"].rules ?? {}).map(
+        (key) => [key, "off"],
+      ),
+    ),
+  },
   eslintPluginJsdoc.configs["flat/recommended-typescript-error"],
   eslintPluginUnicorn.configs["flat/recommended"],
+  eslintConfigPrettier,
   {
     ignores: [
       ".yarn/*",
@@ -29,11 +38,13 @@ module.exports = [
   {
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.json",
+        projectService: true,
+        // tsconfigRootDir: import.meta.dirname,
       },
     },
     rules: {
       "consistent-return": "off",
+      "max-classes-per-file": "off",
       "no-console": "off",
       "no-continue": "off",
       "no-nested-ternary": "off",

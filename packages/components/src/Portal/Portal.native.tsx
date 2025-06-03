@@ -4,7 +4,7 @@ import { RootTagContext } from "react-native";
 import type { PortalProps } from "./Portal.types";
 import { PortalConsumer } from "./PortalContext";
 
-const isFabric = (global as any)?.nativeFabricUIManager;
+const isFabric = (globalThis as any)?.nativeFabricUIManager;
 const { createPortal } = isFabric
   ? require("react-native/Libraries/Renderer/shims/ReactFabric")
   : require("react-native/Libraries/Renderer/shims/ReactNative");

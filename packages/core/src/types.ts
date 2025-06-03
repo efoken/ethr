@@ -1,4 +1,6 @@
-import type { Styles } from "react-strict-dom/dist/types/styles";
+import type { html } from "./html";
+
+export type Styles = React.ComponentProps<typeof html.div>["style"];
 
 export interface StrictReactDOMSvgProps {
   "aria-hidden"?: boolean;
@@ -77,7 +79,6 @@ export interface StrictReactDOMMaskProps {
   height?: string | number;
   id?: string;
   maskUnits?: "userSpaceOnUse" | "objectBoundingBox";
-  style?: Styles;
   width?: string | number;
   x?: string | number;
   y?: string | number;

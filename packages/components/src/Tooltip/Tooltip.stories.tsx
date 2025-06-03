@@ -7,10 +7,10 @@ const meta = {
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
-  render: (args) => <Tooltip {...args} />,
+export const Default: Story = {
   args: {
     anchor: <Button>Open popover</Button>,
     children: "Label",

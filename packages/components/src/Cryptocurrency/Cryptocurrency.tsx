@@ -1,7 +1,6 @@
 import { html } from "@ethr/core";
 import { capitalize, isFunction, isString, useId } from "@ethr/utils";
 import { cloneElement, forwardRef, memo } from "react";
-import type { StrictHTMLElement } from "react-strict-dom";
 import { colors } from "../globals.stylex";
 import { cryptocurrencyStyles } from "./Cryptocurrency.stylex";
 import type {
@@ -31,10 +30,7 @@ function useUtilityStyles({
 }
 
 export const Cryptocurrency = forwardRef(
-  (
-    inProps: CryptocurrencyProps,
-    ref: React.ForwardedRef<StrictHTMLElement>,
-  ) => {
+  (inProps: CryptocurrencyProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       "aria-label": ariaLabel,
       children: childrenProp,
@@ -130,7 +126,7 @@ export function createCryptocurrency(
 ) {
   const Component = (
     props: Omit<CryptocurrencyProps, "children" | "color">,
-    ref: React.ForwardedRef<StrictHTMLElement>,
+    ref: React.ForwardedRef<HTMLDivElement>,
   ) => (
     <Cryptocurrency
       ref={ref}
@@ -146,6 +142,6 @@ export function createCryptocurrency(
 
   return memo(forwardRef(Component)) as React.ForwardRefExoticComponent<
     Omit<CryptocurrencyProps, "children" | "color"> &
-      React.RefAttributes<StrictHTMLElement>
+      React.RefAttributes<HTMLDivElement>
   >;
 }

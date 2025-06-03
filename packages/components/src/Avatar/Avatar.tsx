@@ -1,7 +1,8 @@
+"use client";
+
 import { html } from "@ethr/core";
 import { capitalize } from "@ethr/utils";
 import { forwardRef } from "react";
-import type { StrictHTMLElement } from "react-strict-dom";
 import { colors } from "../globals.stylex";
 import { avatarStyles } from "./Avatar.stylex";
 import type { AvatarOwnerState, AvatarProps } from "./Avatar.types";
@@ -25,7 +26,7 @@ function useUtilityStyles({ shape, size, styles, variant }: AvatarOwnerState) {
 }
 
 export const Avatar = forwardRef(
-  (inProps: AvatarProps, ref: React.ForwardedRef<StrictHTMLElement>) => {
+  (inProps: AvatarProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       alt,
       children,

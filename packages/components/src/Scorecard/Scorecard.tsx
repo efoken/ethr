@@ -1,12 +1,12 @@
 import { html } from "@ethr/core";
 import { capitalize } from "@ethr/utils";
 import { forwardRef } from "react";
-import type { StrictHTMLElement } from "react-strict-dom";
 import { scorecardStyles } from "./Scorecard.stylex";
 import type { ScorecardOwnerState, ScorecardProps } from "./Scorecard.types";
 
 function useUtilityStyles({
   layout,
+  styles,
   variant,
   visualPosition,
 }: ScorecardOwnerState) {
@@ -15,18 +15,19 @@ function useUtilityStyles({
       scorecardStyles.root,
       scorecardStyles[`variant${capitalize(variant)}`],
       scorecardStyles[`layout${capitalize(layout)}`](visualPosition),
+      styles?.root,
     ],
-    text: [scorecardStyles.text],
-    score: [scorecardStyles.score],
-    label: [scorecardStyles.label],
-    count: [scorecardStyles.count],
-    percentage: [scorecardStyles.percentage],
-    percentageLabel: [scorecardStyles.percentageLabel],
+    text: [scorecardStyles.text, styles?.text],
+    score: [scorecardStyles.score, styles?.score],
+    label: [scorecardStyles.label, styles?.label],
+    count: [scorecardStyles.count, styles?.count],
+    percentage: [scorecardStyles.percentage, styles?.percentage],
+    percentageLabel: [scorecardStyles.percentageLabel, styles?.percentageLabel],
   };
 }
 
 export const Scorecard = forwardRef(
-  (inProps: ScorecardProps, ref: React.ForwardedRef<StrictHTMLElement>) => {
+  (inProps: ScorecardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       count,
       label,
@@ -34,6 +35,7 @@ export const Scorecard = forwardRef(
       percentage,
       percentageLabel,
       style,
+      styles: stylesProp,
       variant = "none",
       visual,
       visualPosition = "start",
@@ -42,6 +44,7 @@ export const Scorecard = forwardRef(
 
     const ownerState = {
       layout,
+      styles: stylesProp,
       variant,
       visualPosition,
     };

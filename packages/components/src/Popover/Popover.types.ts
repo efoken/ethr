@@ -1,6 +1,4 @@
-import type { html } from "@ethr/core";
-import type { StrictElement } from "react-strict-dom";
-import type { Styles } from "react-strict-dom/dist/types/styles";
+import type { html, Styles } from "@ethr/core";
 import type { PortalProps } from "../Portal";
 import type {
   FlipOptions,
@@ -35,7 +33,7 @@ export interface PopoverModifier<
 export interface PopoverProps
   extends Pick<PortalProps, "container" | "disablePortal">,
     React.ComponentProps<typeof html.div> {
-  anchor?: React.ReactElement | React.RefObject<StrictElement> | VirtualElement;
+  anchor?: React.ReactElement | React.RefObject<Element> | VirtualElement;
   /** @default [] */
   modifiers?: (
     | PopoverModifier<"flip", FlipOptions>

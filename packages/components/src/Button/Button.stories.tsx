@@ -7,10 +7,10 @@ const meta = {
 } satisfies Meta<typeof Button>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
-  render: (args) => <Button {...args} />,
+export const Default: Story = {
   args: {
     children: "Button Text",
     prefix: <PlusFilled />,

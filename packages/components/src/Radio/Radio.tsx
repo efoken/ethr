@@ -1,3 +1,5 @@
+"use client";
+
 import { html } from "@ethr/core";
 import {
   capitalize,
@@ -8,10 +10,6 @@ import {
   useId,
 } from "@ethr/utils";
 import { forwardRef, useEffect, useRef, useState } from "react";
-import type {
-  StrictHTMLElement,
-  StrictHTMLInputElement,
-} from "react-strict-dom";
 import { colors } from "../globals.stylex";
 import { radioStyles } from "./Radio.stylex";
 import type { RadioOwnerState, RadioProps } from "./Radio.types";
@@ -51,7 +49,7 @@ function useUtilityStyles({
 }
 
 export const Radio = forwardRef(
-  (inProps: RadioProps, ref: React.ForwardedRef<StrictHTMLElement>) => {
+  (inProps: RadioProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       checked: checkedProp,
       children,
@@ -106,9 +104,9 @@ export const Radio = forwardRef(
       focusVisibleRef.current = focusVisible;
     }, [focusVisible, focusVisibleRef]);
 
-    const innerInputRef = useRef<StrictHTMLInputElement | null>(null);
+    const innerInputRef = useRef<HTMLInputElement | null>(null);
 
-    const handleFocus = (event: React.FocusEvent<StrictHTMLInputElement>) => {
+    const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
       // Fix for https://github.com/facebook/react/issues/7769
       if (!innerInputRef.current) {
         innerInputRef.current = event.currentTarget;
@@ -124,7 +122,7 @@ export const Radio = forwardRef(
       onFocus?.(event);
     };
 
-    const handleBlur = (event: React.FocusEvent<StrictHTMLInputElement>) => {
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
       handleBlurVisible(event);
 
       if (focusVisibleRef.current === false) {
@@ -159,9 +157,7 @@ export const Radio = forwardRef(
                 defaultChecked={defaultChecked}
                 disabled={disabled}
                 id={id}
-                // @ts-expect-error
                 readOnly={readOnly}
-                // @ts-expect-error
                 required={required}
                 style={styles.input}
                 type="radio"

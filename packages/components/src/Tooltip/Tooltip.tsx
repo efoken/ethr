@@ -1,3 +1,5 @@
+"use client";
+
 import { html } from "@ethr/core";
 import {
   createChainedFunction,
@@ -6,7 +8,6 @@ import {
   useOpenState,
 } from "@ethr/utils";
 import { cloneElement, forwardRef, isValidElement, useState } from "react";
-import type { StrictHTMLElement } from "react-strict-dom";
 import { Popover } from "../Popover";
 import { tooltipStyles } from "./Tooltip.stylex";
 import type { TooltipOwnerState, TooltipProps } from "./Tooltip.types";
@@ -20,7 +21,7 @@ function useUtilityStyles({ styles }: TooltipOwnerState) {
 }
 
 export const Tooltip = forwardRef(
-  (inProps: TooltipProps, ref: React.ForwardedRef<StrictHTMLElement>) => {
+  (inProps: TooltipProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       anchor: anchorProp,
       children,

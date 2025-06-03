@@ -1,5 +1,6 @@
+"use client";
+
 import { useCallback, useRef } from "react";
-import type { StrictHTMLInputElement } from "react-strict-dom";
 import { Timeout } from "./useTimeout";
 
 let hadKeyboardEvent = true;
@@ -115,11 +116,11 @@ export interface UseFocusVisibleReturn {
   focusVisibleRef: React.MutableRefObject<boolean>;
   handleBlur: (event: React.FocusEvent<any>) => void;
   handleFocus: (event: React.FocusEvent<any>) => void;
-  ref: React.RefCallback<StrictHTMLInputElement>;
+  ref: React.RefCallback<HTMLInputElement>;
 }
 
 export function useFocusVisible(): UseFocusVisibleReturn {
-  const ref = useCallback((node: StrictHTMLInputElement) => {
+  const ref = useCallback((node: HTMLInputElement) => {
     if (node != null) {
       prepare((node as any).ownerDocument);
     }

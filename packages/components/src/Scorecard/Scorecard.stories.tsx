@@ -7,9 +7,10 @@ const meta = {
 } satisfies Meta<typeof Scorecard>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
+export const Default: Story = {
   args: {
     count: "$198,298",
     label: "Label",

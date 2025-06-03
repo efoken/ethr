@@ -1,7 +1,7 @@
-import type { html } from "@ethr/core";
-import type { Styles } from "react-strict-dom/dist/types/styles";
+import type { html, Styles } from "@ethr/core";
 
 export interface ButtonProps extends React.ComponentProps<typeof html.button> {
+  children?: React.ReactNode;
   /** @default "primary" */
   color?: "primary" | "danger";
   /** @default false */

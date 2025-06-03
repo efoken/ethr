@@ -1,7 +1,8 @@
-import { html } from "@ethr/core";
+"use client";
+
+import { css, html } from "@ethr/core";
 import { mergeRefs, useEnhancedEffect } from "@ethr/utils";
 import { cloneElement, forwardRef, isValidElement, useRef } from "react";
-import type { StrictHTMLElement } from "react-strict-dom";
 import { Portal } from "../Portal";
 import type {
   FlipOptions,
@@ -35,7 +36,7 @@ function useUtilityStyles({ placement, styles }: PopoverOwnerState) {
 }
 
 export const Popover = forwardRef(
-  (inProps: PopoverProps, ref: React.ForwardedRef<StrictHTMLElement>) => {
+  (inProps: PopoverProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       anchor,
       children,
@@ -84,7 +85,7 @@ export const Popover = forwardRef(
     };
 
     const anchorRef = useRef<any>();
-    const contentRef = useRef<StrictHTMLElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
     const arrowRef = useRef<any>(null);
 
     const { floatingStyles, middlewareData, placement, refs, update } =
@@ -143,6 +144,7 @@ export const Popover = forwardRef(
         {open && (
           <Portal container={container} disablePortal={disablePortal}>
             <html.div
+              // @ts-expect-error
               ref={mergeRefs(refs.setFloating, ref)}
               // @ts-expect-error
               style={[styles.root, style, positioned && floatingStyles]}
@@ -153,16 +155,16 @@ export const Popover = forwardRef(
                   ref={arrowRef}
                   style={[
                     styles.arrow,
-                    // @ts-expect-error
                     positioned &&
-                      middlewareData.arrow?.x != null && {
+                      middlewareData.arrow?.x != null &&
+                      css.inline({
                         left: middlewareData.arrow.x,
-                      },
-                    // @ts-expect-error
+                      }),
                     positioned &&
-                      middlewareData.arrow?.y != null && {
+                      middlewareData.arrow?.y != null &&
+                      css.inline({
                         top: middlewareData.arrow.y,
-                      },
+                      }),
                   ]}
                 />
               )}

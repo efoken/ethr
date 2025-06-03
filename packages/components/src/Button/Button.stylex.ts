@@ -14,7 +14,7 @@ export const buttonStyles = css.create({
     justifyContent: "center",
     textAlign: "center",
     transitionDuration: "0.25s",
-    transitionProperty: "backgroundColor, borderColor, color",
+    transitionProperty: "backgroundColor, borderColor",
     userSelect: "none",
   },
   sizeXlarge: {
@@ -86,5 +86,7 @@ export const buttonStyles = css.create({
     color: colors.neutral40,
     pointerEvents: "none",
   }),
-  label: {},
+  label: {
+    transitionProperty: "color",
+  },
 });

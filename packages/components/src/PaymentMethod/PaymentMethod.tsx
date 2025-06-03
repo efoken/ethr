@@ -1,7 +1,6 @@
 import { html } from "@ethr/core";
 import { capitalize, isFunction } from "@ethr/utils";
 import { cloneElement, forwardRef, memo } from "react";
-import type { StrictHTMLElement } from "react-strict-dom";
 import { colors } from "../globals.stylex";
 import { paymentMethodStyles } from "./PaymentMethod.stylex";
 import type {
@@ -27,7 +26,7 @@ function useUtilityStyles({
 }
 
 export const PaymentMethod = forwardRef(
-  (inProps: PaymentMethodProps, ref: React.ForwardedRef<StrictHTMLElement>) => {
+  (inProps: PaymentMethodProps, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {
       "aria-label": ariaLabel,
       children: childrenProp,
@@ -90,7 +89,7 @@ export function createPaymentMethod(
 ) {
   const Component = (
     props: Omit<PaymentMethodProps, "children" | "color">,
-    ref: React.ForwardedRef<StrictHTMLElement>,
+    ref: React.ForwardedRef<HTMLDivElement>,
   ) => (
     <PaymentMethod
       ref={ref}
@@ -106,6 +105,6 @@ export function createPaymentMethod(
 
   return memo(forwardRef(Component)) as React.ForwardRefExoticComponent<
     Omit<PaymentMethodProps, "children" | "color"> &
-      React.RefAttributes<StrictHTMLElement>
+      React.RefAttributes<HTMLDivElement>
   >;
 }
